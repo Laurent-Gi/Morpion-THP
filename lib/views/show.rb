@@ -6,11 +6,14 @@ class Show
   end
 
   def putcenter(str)
-    puts str.center(80)
+    # puts str.center(80)
+    # puts Paint[str, :red]
+    puts Paint[str, :green].center(80)
   end
 
 def show_board
     
+
     puts "\n\n\n\n\n"
     putcenter("                             ")
     putcenter(" +       1     2     3      +")

@@ -10,25 +10,27 @@ class Game
 
 
   def game_end
-    # TO DO : permet l'affichage de fin de partie quand un vainqueur est détecté ou si il y a match nul
+    # Permet l'affichage de fin de partie quand un vainqueur est détecté ou si il y a match nul
+
+    colorizer = Lolize::Colorizer.new
     puts "\n\n"
-    puts " C'est la fin de la partie !".center(80)
+    colorizer.write " C'est la fin de la partie !".center(80)
     puts "\n\n"
-    puts "-=" * 40
+    colorizer.write "-=" * 40
 
     if @status == "match nul"
-      puts "Et c'est un match nul".center(80)
+      colorizer.write "Et c'est un match nul".center(80)
     elsif @status == "X"
       puts "\n\n"
-      puts "Match remporté par #{@current_player.name} avec ses pions '#{@current_player.pawn_type}'".center(80)
+      colorizer.write "Match remporté par #{@current_player.name} avec ses pions '#{@current_player.pawn_type}'".center(80)
       puts "\n\n"
     elsif @status == "O"
       puts "\n\n"
-      puts "Match remporté par #{@current_player.name} avec ses pions '#{@current_player.pawn_type}'".center(80)
+      colorizer.write "Match remporté par #{@current_player.name} avec ses pions '#{@current_player.pawn_type}'".center(80)
       puts "\n\n"
     elsif @status == "on going"
       puts "\n\n"
-      puts "C'est une partie vraiment nulle 0-0 si ça arrive..."
+      colorizer.write "C'est une partie vraiment nulle 0-0 si ça arrive..."
       puts "\n\n"
     end
 

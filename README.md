@@ -121,3 +121,15 @@ source 'https://rubygems.org' do
   gem 'pry'
   gem 'rspec'
 end
+
+
+gem lolize
+require 'lolize'
+require 'paint'                   │
+
+       ┌── info ───────────────────────────┐
+ J-_-L │ https://github.com/janlelis/paint │
+       ├── usage ──────────────────────────┤
+       │ require 'paint'                   │
+       │ puts Paint['J-_-L', :red] # J-_-L │
+       └───────────────────────────────────┘

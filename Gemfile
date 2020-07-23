@@ -8,7 +8,7 @@ source "https://rubygems.org" do
   gem 'rubocop', '~> 0.88.0', require: false
   gem 'pry'
   gem 'rspec'
-  
+  gem 'lolize'
   # Project gems : add your specific gem for your project
   
 end

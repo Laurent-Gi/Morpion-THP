@@ -25,17 +25,22 @@ class Application
     @players = Array.new
   end
 
+
   def display_welcome
     system("clear")
-    puts "-=" * 40
-    puts "\n\n\n\n\n"
-    puts "H e l l o   a n d   W e l c o m e   t o   y o u  !".center(80)
-    puts "\n\n\n\n\n"
-    puts "Today is the".center(80)
-    puts "M O R P I O N 's".center(80)
-    puts "day".center(80)
-    puts "\n\n\n\n\n"
-    puts "-=" * 40
+    colorizer = Lolize::Colorizer.new
+    colorizer.write " "
+    colorizer.write "-=" * 40
+    colorizer.write "\n\n\n\n\n"
+    colorizer.write "H e l l o   a n d   W e l c o m e   t o   y o u  !".center(80)
+    colorizer.write "\n\n\n\n\n"
+    colorizer.write "Today is the".center(80)
+    colorizer.write "\n\n"
+    colorizer.write "M O R P I O N 's".center(80)
+    colorizer.write "\n\n"
+    colorizer.write "day".center(80)
+    colorizer.write "\n\n\n\n"
+    colorizer.write "-=" * 40
   end
 
 
@@ -58,11 +63,12 @@ class Application
 
 
   def game_over_display
-    puts "-=" * 40
+    colorizer = Lolize::Colorizer.new
+    colorizer.write "-=" * 40
     puts "\n\n\n\n\n"
-    puts "  G  A  M  E      O  V  E  R    !  !  !  !".center(80)
+    colorizer.write "  G  A  M  E      O  V  E  R    !  !  !  !".center(80)
     puts "\n\n\n\n\n"
-    puts "-=" * 40
+    colorizer.write "-=" * 40
   end
 
 
