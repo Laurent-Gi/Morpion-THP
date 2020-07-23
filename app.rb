@@ -1,15 +1,15 @@
 require 'bundler'
-require "pry"
 Bundler.require
 
-$:.unshift File.expand_path("./../lib", __FILE__)
+$:.unshift File.expand_path("./../lib/app", __FILE__)
+$:.unshift File.expand_path("./../lib/views", __FILE__)
 # Les classes dans lib/app :
-require 'app/game'
-require 'app/player'
-require 'app/board'
-require 'app/board_case'
+require 'game'
+require 'player'
+require 'board'
+require 'boardcase'
 # Les classes dans lib/views
-require 'views/show'
+require 'show'
 
 
 # --------------------------------------------------------------------------------------
@@ -27,6 +27,7 @@ class Application
   end
 
   def display_welcom
+    system("clear")
     puts "-=" * 40
     puts "\n\n\n\n\n"
     puts "H e l l o   a n d   W e l c o m e   t o   y o u  !".center(80)
@@ -41,10 +42,12 @@ class Application
 
   # Création des deux jouers
   def ask_names
+    puts " "
     puts "Player 1 (you play with the O), please, enter your name ?"
     print "> "
     @players << Player.new(STDIN.gets.chomp.to_s, "O")
 
+    puts " "
     puts "Player 2 (you play with the X), please, enter your name ?"
     print "> "
     @players << Player.new(STDIN.gets.chomp.to_s, "X")
@@ -61,7 +64,7 @@ class Application
 
 
   def stop_game?(word="")
-    puts "Would you like to play #{word} this funny game ? (y/n)"
+    puts "Would you like to play#{word} this funny game ? (y/n)"
     play = STDIN.gets.chomp.to_s
     return play != "y"
   end
@@ -70,13 +73,15 @@ class Application
   def perform
     # TO DO : méthode qui initialise le jeu puis contient des boucles while pour faire tourner le jeu tant que la partie n'est pas terminée.
     # 
+
+    display_welcom
+    # stop_game?
+    ask_names
     loop do
-      display_welcom
-      break if stop_game?
-      ask_names
-      Game.new.perform
+      # Game.new.perform
+      Game.new(@players).perform
       game_over_display
-      break if stop_game?("again")
+      break if stop_game?(" again")
     end
   end
 end

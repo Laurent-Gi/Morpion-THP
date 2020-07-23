@@ -1,17 +1,20 @@
-class Game(players)
+class Game
   attr_accessor :players, :current_player, :board, :status
 
-  def initialize
-    @players = players
-    @current_player = Player.new
-    # @board = Board.new
-    # @status = nil
+  def initialize(tab)
+    @players = tab
+    @current_player = @players[0] # A la création, c'est le joueur 1 qui est current
+    @board = Array.new
+    @status = nil
   end
 
   def perform
+    puts "\n\n"
+    puts "-="*40
+    puts "\n\n"
     puts "Début de partie entre :"
     puts "- #{@players[0].name} qui joue avec les #{@players[0].pawn_type}".rjust(80)
-    puts "  et "
+    puts "        et ".center(80)
     puts "- #{@players[1].name} qui joue avec les #{@players[1].pawn_type}".rjust(80)
     puts " "
   end
