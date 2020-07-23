@@ -23,10 +23,9 @@ class Application
   # Ici on a un tableau de 2 instances de Player
   def initialize
     @players = Array.new
-    # Rien à faire ici
   end
 
-  def display_welcom
+  def display_welcome
     system("clear")
     puts "-=" * 40
     puts "\n\n\n\n\n"
@@ -45,12 +44,16 @@ class Application
     puts " "
     puts "Player 1 (you play with the O), please, enter your name ?"
     print "> "
-    @players << Player.new(STDIN.gets.chomp.to_s, "O")
+    name1 = STDIN.gets.chomp.to_s 
+    name1 = "Bob" if name1.length <= 0 
+    @players << Player.new(name1, "O")
 
     puts " "
     puts "Player 2 (you play with the X), please, enter your name ?"
     print "> "
-    @players << Player.new(STDIN.gets.chomp.to_s, "X")
+    name2 = STDIN.gets.chomp.to_s
+    name2 = "Lynda" if name2.length <=0
+    @players << Player.new(name2, "X")
   end
 
 
@@ -63,25 +66,32 @@ class Application
   end
 
 
-  def stop_game?(word="")
+  def stop_game?(default="n", word="")
+    puts "\n\n"
     puts "Would you like to play#{word} this funny game ? (y/n)"
     play = STDIN.gets.chomp.to_s
+    play = default if play.length <= 0
     return play != "y"
   end
 
 
   def perform
-    # TO DO : méthode qui initialise le jeu puis contient des boucles while pour faire tourner le jeu tant que la partie n'est pas terminée.
-    # 
+    display_welcome
 
-    display_welcom
-    # stop_game?
+    return if stop_game?("y") # par défault on voudra jouer
+
     ask_names
+
     loop do
-      # Game.new.perform
+
+      # Game.new.perform : Je passe le tableau des players déjà créés
       Game.new(@players).perform
+      
+      # La partie étant terminée, je demande s'ils veulent rejouer
       game_over_display
-      break if stop_game?(" again")
+      
+      break if stop_game?("n", " again") # par défault on veut arrêter
+
     end
   end
 end

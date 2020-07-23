@@ -4,7 +4,7 @@
 > Author : Laurent Saives
 > Date   : 23/07/2020
 >
-> In peer learning with : Régis & Paul-Marie
+> In pair learning with : Paul-Marie Debrie
 > ----------------------------------------------------
 
  Programme développé en Ruby  et  en  POO
