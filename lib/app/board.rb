@@ -9,13 +9,13 @@ class Board
     # création des 9 cases : 9 instances de la classe BoardCase
     # ----------------------
     @boardcase_array << BoardCase.new("a1", " ")
-    @boardcase_array << BoardCase.new("b1", " ")
-    @boardcase_array << BoardCase.new("c1", " ")
     @boardcase_array << BoardCase.new("a2", " ")
-    @boardcase_array << BoardCase.new("b2", " ")
-    @boardcase_array << BoardCase.new("c2", " ")
     @boardcase_array << BoardCase.new("a3", " ")
+    @boardcase_array << BoardCase.new("b1", " ")
+    @boardcase_array << BoardCase.new("b2", " ")
     @boardcase_array << BoardCase.new("b3", " ")
+    @boardcase_array << BoardCase.new("c1", " ")
+    @boardcase_array << BoardCase.new("c2", " ")
     @boardcase_array << BoardCase.new("c3", " ")
 
   end
@@ -24,7 +24,6 @@ class Board
 
   def write_on_case(str, str_type)
     # Le type sera "O", "X", et les str à retraiter "1a", "2a", "3c"
-
     # puts "Vous avez choisi de mettre un #{str_type} dans la case #{str}"
 
     @boardcase_array.each do |boardcase|
@@ -42,7 +41,7 @@ class Board
 
 
 
-  def victory #On teste toutes les combinaisons pour savoir si un jouer a gagné
+  def victory? #On teste toutes les combinaisons pour savoir si un jouer a gagné # => renvoie status
 
     if @boardcase_array[0].str_value == "X"  && @boardcase_array[1].str_value == "X" && @boardcase_array[2].str_value == "X"
       return "X"

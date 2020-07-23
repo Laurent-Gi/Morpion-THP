@@ -16,7 +16,7 @@
  $  bundle install
  pour que l'environnement soit prêt.
  
- Sinon, voyez avec RVM ou Rbenv pour que la ruby -v soit la même avant de relancer
+ Sinon, voyez avec RVM ou Rbenv pour que la "ruby -v" soit la même avant de relancer
   $ gem install bundler
  puis
   $ bundle install
@@ -55,6 +55,60 @@ Morpion-THP
 ├── Gemfile.lock
 ├── Autres fichiers (.env, .gitignore)
 └── .rspec
+
+
+
+
+## Contenu du fichier app.rb
+
+  Il contient la classe application, chef d'orchestre de l'application.
+
+  La commande unique mère se trouve après la classe :
+
+#  Application.new.perform
+
+
+## Classe Application:
+
+#  initialize
+# display_welcome
+# ask_names
+# game_over_display
+# stop_game?
+# perform
+
+
+## Contenu du fichier game.rb
+
+# game_end
+# turn
+# choose_case
+# perform
+
+
+## Contenu du fichier player.rb
+
+# initialize
+
+
+## Contenu du fichier board.rb
+
+# initialize
+# write_on_case
+# victory?
+
+
+## Contenu du fichier board.rb
+
+# initialize
+
+
+## Contenu du fichier board.rb
+
+# initialize
+# putcenter
+# show_board
+
 
 
 

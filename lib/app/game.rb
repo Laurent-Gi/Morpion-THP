@@ -57,7 +57,7 @@ class Game
 
         # 3/ On vérifie le 'status' de la partie (Victoire, fin de partie ou "on going")
         # ------------------------------------------------------------------------------
-        @status = @board.victory
+        @status = @board.victory?
 
 
         # 1/ On affiche le plateau après le dernire coup du joueur :
